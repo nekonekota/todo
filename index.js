@@ -38,7 +38,15 @@
 			.filter(isNotDone)
 			.map(t => t[0]);
 	}
-	
+	const fs = require('fs');
+const fileName = './tasks.json';
+
+/**
+ * タスクをファイルに保存する
+ */
+function saveTasks() {
+  fs.writeFileSync(fileName, JSON.stringify(Array.from(tasks)), 'utf8');
+}
 	/**
 	 * TODOを完了状態にする
 	 * @param {string} task
